@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Unity Catalog + Databricks Assets Bundle</title>
+    <meta name="description"
+        content="Domina Unity Catalog y automatiza despliegues con Databricks Assets Bundle. Curso práctico, certificado profesional, proyectos reales y acceso de por vida.">
+    <meta name="keywords"
+        content="Unity Catalog, Databricks, Databricks Assets Bundle, Data Engineering, Data Lakehouse, Gobernanza de datos, CI/CD datos, curso Databricks">
+    <meta name="author" content="Eladio Yovera">
+    <link rel="canonical" href="https://tusitio.com/curso-unity-catalog">
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+    <!-- OPEN GRAPH (Facebook / LinkedIn / WhatsApp) -->
+    <meta property="og:title" content="Curso Unity Catalog + Databricks Assets Bundle | Mastery Completo">
+    <meta property="og:description"
+        content="Aprende paso a paso a dominar Unity Catalog y automatizar despliegues en Databricks con Assets Bundle. Certificado incluido.">
+    <meta property="og:image" content="https://tusitio.com/assets/og-image-unity-catalog.png">
+    <meta property="og:url" content="https://tusitio.com/curso-unity-catalog">
+    <meta property="og:type" content="website">
+    <link href="./src/css/styles.css" rel="stylesheet">
+</head>
+
+<body class="antialiased bg-beige scroll-smooth">
+    <header class="sticky top-0 z-30 border-b border-teal-900 bg-primary backdrop-blur">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+            <div class="flex items-center gap-2">
+                <div class="h-9 w-9 rounded-xl bg-base flex items-center justify-center shadow-lg">
+                    <span class="text-xs font-semibold tracking-tight text-beige">UC</span>
+                </div>
+                <div class="flex flex-col leading-tight">
+                    <span class="text-sm font-semibold tracking-wide text-slate-100">Unity Catalog Pro</span>
+                    <span class="text-[11px] uppercase tracking-[0.16em] text-slate-400">Databricks Assets Bundle</span>
+                </div>
+            </div>
+            <nav>
+                <ul class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+                    <li><a href="#beneficios" class="hover:text-white">Beneficios</a></li>
+                    <li><a href="#contenido" class="hover:text-white">Contenido</a></li>
+                    <li><a href="#publico" class="hover:text-white">Para quién</a></li>
+                    <li><a href="#precio" class="hover:text-white">Precio</a></li>
+                </ul>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="#cta-final"
+                    class="hidden md:block bg-brown text-beige rounded-full px-5 py-2 text-sm font-bold shadow-lg hover:bg-brown/90 transition">
+                    Acceso Inmediato
+                </a>
+                <button id="menu-toggle" class="md:hidden text-beige text-2xl focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="fixed top-0 right-0 h-screen w-64 bg-primary text-slate-200 shadow-xl transform translate-x-full transition-transform duration-300 hidden">
+            <div class="p-4 flex justify-between items-center border-b border-slate-700 bg-primary">
+                <span class="text-lg font-semibold">Menú</span>
+                <button id="close-menu"
+                    class="p-2 text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-teal-500 rounded"
+                    aria-label="Cerrar menú">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="p-5 flex flex-col gap-5 text-sm bg-primary">
+                <a href="#beneficios" class="hover:text-white">Beneficios</a>
+                <a href="#contenido" class="hover:text-white">Contenido</a>
+                <a href="#publico" class="hover:text-white">Para quién</a>
+                <a href="#precio" class="hover:text-white">Precio</a>
+                <a href="#cta-final"
+                    class="bg-brown text-beige rounded-full px-4 py-2 text-center font-bold shadow hover:bg-brown/90">
+                    Acceso Inmediato
+                </a>
+            </nav>
+        </div>
+    </header>
+    <div id="offer-banner" class="bg-brown text-beige text-center py-3 px-4 shadow-lg">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-6 relative z-10 px-4 sm:px-6 lg:px-8">
+            <div class="flex-1 min-w-[280px] md:text-left text-center">
+                <div class="inline-flex items-center gap-2 bg-[#8b6f47]/30 border border-[#8b6f47]/50 px-3.5 py-1.5 rounded-full mb-3">
+                    <span class="fire-icon">🎁</span>
+                    <span class="text-xs font-semibold uppercase tracking-wider">Oferta Exclusiva</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-2 leading-tight drop-shadow-lg">
+                    ¡<span class="text-[#f5d7a1]">50% DE DESCUENTO</span> por Tiempo Limitado!
+                </h2>
+                <p class="text-base md:text-lg opacity-95 font-medium">
+                    Aprovecha esta oportunidad única antes de que expire
+                </p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-6 flex-wrap">
+                <span class="text-sm font-semibold uppercase tracking-wider opacity-90">
+                    La oferta termina en:
+                </span>
+                <div class="flex gap-3">
+                    <div class="time-unit flex flex-col items-center bg-white/15 backdrop-blur-lg border-2 border-white/20 rounded-xl px-3.5 py-3 min-w-[70px] shadow-xl hover:-translate-y-0.5 transition-transform">
+                        <span class="time-value text-3xl md:text-4xl font-black leading-none text-[#f5d7a1] drop-shadow-lg tabular-nums" id="hours">13</span>                          
+                        <span class="text-[10px] uppercase mt-1.5 opacity-85 font-semibold tracking-wider">Horas</span>
+                    </div>
+                    <div class="time-unit flex flex-col items-center bg-white/15 backdrop-blur-lg border-2 border-white/20 rounded-xl px-3.5 py-3 min-w-[70px] shadow-xl hover:-translate-y-0.5 transition-transform">
+                        <span class="time-value text-3xl md:text-4xl font-black leading-none text-[#f5d7a1] drop-shadow-lg tabular-nums" id="minutes">00</span>
+                        <span class="text-[10px] uppercase mt-1.5 opacity-85 font-semibold tracking-wider">Minutos</span>
+                    </div>
+                    <div class="time-unit flex flex-col items-center bg-white/15 backdrop-blur-lg border-2 border-white/20 rounded-xl px-3.5 py-3 min-w-[70px] shadow-xl hover:-translate-y-0.5 transition-transform">
+                        <span class="time-value text-3xl md:text-4xl font-black leading-none text-[#f5d7a1] drop-shadow-lg tabular-nums"  id="seconds">00</span>
+                        <span class="text-[10px] uppercase mt-1.5 opacity-85 font-semibold tracking-wider">Segundos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main>
+        <section class="bg-primary">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 badge rounded-full px-3 py-1 mb-5 border border-brown/30 bg-brown/10">
+                        <span class="h-2 w-2 rounded-full bg-brown dot-pulse"></span>
+                        <span class="text-[11px] font-medium uppercase tracking-[0.16em] text-beige">
+                            Curso 100% Práctico y Orientado a Producción
+                        </span>
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-50 mb-4">
+                        Domina
+                        <span class="text-brown">Unity Catalog</span>
+                        y automatiza despliegues con
+                        <span class="text-brown">Databricks Assets Bundle.</span>
+                    </h1>
+
+                    <p class="text-sm sm:text-base text-slate-300 max-w-xl mb-6">
+                        El curso definitivo para llevar tus proyectos de datos al siguiente nivel con una arquitectura
+                        gobernada, escalable y segura. Aprende paso a paso cómo centralizar la gobernanza de datos,
+                        gestionar permisos de forma granular y automatizar despliegues con Assets Bundle como lo hacen
+                        los equipos de ingeniería más avanzados.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-6">
+                        <a href="#cta-final"
+                            class="bg-brown text-beige inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold">
+                            Comprar ahora
+                        </a>
+                        <button onclick="scrollToSection('contenido')"
+                            class="inline-flex items-center justify-center rounded-full px-5 py-2 text-xs sm:text-sm font-medium border border-emerald-400/30 text-beige cursor-pointer">
+                            Ver contenido del curso
+                        </button>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-x-6 gap-y-3 text-[11px] text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="h-6 w-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-[10px]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="none"
+                                    stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 6v6l4 2" />
+                                    <circle cx="12" cy="12" r="10" />
+                                </svg>
+                            </span>
+                            <span>+10 horas de contenido aplicable</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="h-6 w-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-[10px]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="none"
+                                    stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6" />
+                                    <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+                                </svg>
+                            </span>
+                            <span>Certificado profesional incluido</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="./src/assets/images/image-her-unity-catalog.png" class="w-full rounded-2xl shadow-xl"
+                        alt="Online Learning" />
+                    <div class="absolute -top-6  mb-20 -right-20 bg-white/10 backdrop-blur-3xl shadow-lg rounded-xl px-4 py-3 items-center gap-3 border border-white/45 hidden lg:flex">
+                        <div class="bg-brown p-2 rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeLinecap="round"
+                                strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" class="text-white">
+                                <rect width="8" height="8" x="3" y="3" rx="2" />
+                                <path d="M7 11v4a2 2 0 0 0 2 2h4" />
+                                <rect width="8" height="8" x="13" y="13" rx="2" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold text-primary">Arquitectura Centralizada</p>
+                            <p class="text-sm text-gray-700">Gestión Unificada</p>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-10 -left-10 bg-white/10 backdrop-blur-3xl shadow-lg rounded-xl px-4 py-3 items-center gap-3 border border-white/45 hidden lg:flex">
+                        <div class="bg-brown p-2 rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="2" class="text-white">
+                                <path
+                                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                                <path d="m9 12 2 2 4-4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold text-primary">Gobernanza de Datos</p>
+                            <p class="text-sm text-gray-700">Seguridad y Cumplimiento</p>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-36 -right-20  bg-white/10 backdrop-blur-3xl shadow-lg rounded-xl px-4 py-3 items-center gap-3 border border-white/45 hidden lg:flex">
+                        <div class="bg-brown p-2 rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeLinecap="round"
+                                strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" class="text-white"> 
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                <circle cx="12" cy="12" r="4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold text-primary">Automatización Avanzada</p>
+                            <p class="text-sm text-gray-700">CI/CD para Databricks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="beneficios">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
+                <div class="text-center mb-16">
+                    <h2 class="text-2xl md:text-4xl font-bold text-primary mb-4">Tus 6 Logros al Finalizar este Mastery
+                    </h2>
+                    <p class="text-base text-gray-600 max-w-2xl mx-auto">
+                        No solo aprenderás herramientas; adquirirás las habilidades de arquitectura senior que te
+                        diferenciarán en el mercado y te permitirán liderar proyectos complejos en Databricks.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="benefits-container"></div>
+            </div>
+        </section>
+        <section id="contenido" class="bg-white">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+                <div class="text-center mb-20 space-y-6 max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary mb-6 leading-tight">El Camino al Dominio: Módulos 100%
+                        Prácticos</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Este temario ha sido diseñado por un arquitecto de datos senior para llevarte de la
+                        configuración básica
+                        a la implementación de soluciones escalables en producción.
+                    </p>                  
+                </div>
+                <div class="mx-auto max-w-4xl">
+                    <div class="bg-white rounded-3xl shadow-2xl shadow-primary/20 overflow-hidden border-gray-100">
+                        <div class="p-6 bg-primary text-white border-b-4 border-brown">
+                            <h3 class="text-2xl font-bold flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="mr-3 text-beige">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V5H6.5A2.5 2.5 0 0 0 4 7.5v12z" />
+                                </svg>
+                                Temario Detallado: Unity Catalog + DAB
+                            </h3>
+                        </div>
+                        <div class="divide-y divide-gray-100" id="topics-container"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="publico">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+                <div class="text-center mb-20 space-y-6 max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary mb-6 leading-tight">Transforma tu Rol: ¿Quién se beneficia
+                        de este Mastery?</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Este programa está meticulosamente diseñado para profesionales de datos que buscan pasar del
+                        manejo básico a la arquitectura avanzada y la automatización con las herramientas más modernas
+                        de Databricks.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" id="public-container"></div>
+        </section>
+        <section id="instructor" class="bg-white">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+                <div class="text-center mb-20 space-y-6">
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary mb-6 leading-tight">Aprende del Experto Líder en Databricks
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Tu mentor en este curso no es un teórico, sino un profesional que aplica estas arquitecturas en
+                        proyectos reales.
+                    </p>
+                </div>
+
+                <div class="mx-auto bg-white rounded-3xl shadow-2xl shadow-primary/10 border-t-8 border-brown p-10 lg:p-12 max-w-5xl">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                            <img src="./src/assets/images/image-instructor.jpg" alt="Instructor"
+                                class="w-64 h-64 rounded-full object-cover border-4 border-primary">
+                        </div>
+                        <div class="md:w-2/3 md:pl-12">
+                            <h3 class="text-3xl font-bold text-primary mb-2">Eladio Yovera</h3>
+                            <p class="text-brown font-semibold mb-4">Arquitecto de Datos Senior | Experto Certificado en
+                                Databricks
+                            </p>
+                            <p class="text-gray-600 mb-6">Con experiencia en el mundo de los datos, Eladio ha
+                                liderado proyectos de transformación digital en empresas Fortune 500. Es certificado por
+                                Databricks y ha contribuido al desarrollo de soluciones de datos a gran escala.
+                            </p>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+
+                                <div class="flex items-center gap-3 bg-primary/5 p-3 rounded-lg">
+                                    <span
+                                        class="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-md">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                            stroke-linecap="round" stroke-linejoin="round" class="text-beige">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <path d="M12 6v6l4 2" />
+                                        </svg>
+                                    </span>
+                                    <div>
+                                        <p class="text-sm font-semibold text-primary">10+ Años de Experiencia</p>
+                                        <p class="text-xs text-gray-600">Liderando proyectos en Data & Cloud.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3 bg-primary/5 p-3 rounded-lg">
+                                    <span
+                                        class="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-md">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                            stroke-linecap="round" stroke-linejoin="round" class="text-beige">
+                                            <path d="m15 5 4 4" />
+                                            <path d="M13.5 10.5 19 16l-3 3-5.5-5.5" />
+                                            <path d="m9 18-6-6 4-4" />
+                                            <path d="M12.5 12.5 4 20l5-5" />
+                                        </svg>
+                                    </span>
+                                    <div>
+                                        <p class="text-sm font-semibold text-primary">Databricks Certificado</p>
+                                        <p class="text-xs text-gray-600">Conocimiento validado por la plataforma.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3 bg-primary/5 p-3 rounded-lg">
+                                    <span
+                                        class="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-md">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                            stroke-linecap="round" stroke-linejoin="round" class="text-beige">
+                                            <path d="M3 21h18" />
+                                            <path
+                                                d="M5 21V9.45c0-.66.35-1.12 1-1.28L12 6l5 1.77c.65.16 1 .62 1 1.28V21" />
+                                        </svg>
+                                    </span>
+                                    <div>
+                                        <p class="text-sm font-semibold text-primary">Proyectos Empresariales</p>
+                                        <p class="text-xs text-gray-600">Implementaciones en compañías líderes (Fortune
+                                            500).
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3 bg-primary/5 p-3 rounded-lg">
+                                    <span
+                                        class="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-md">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                            stroke-linecap="round" stroke-linejoin="round" class="text-beige">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <path d="M2.5 10h19M8 2.5v19M15 2.5v19" />
+                                        </svg>
+                                    </span>
+                                    <div>
+                                        <p class="text-sm font-semibold text-primary">Enseñanza a la Comunidad</p>
+                                        <p class="text-xs text-gray-600">Facilitador activo y creador de contenido de
+                                            valor.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-16 max-w-4xl mx-auto">
+                        <p class="text-xl font-bold text-primary italic opacity-90">
+                            "Enseño no solo la herramienta, sino la mentalidad de arquitectura que necesitas para
+                            escalar tu
+                            carrera."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="precio">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+                <div class="text-center mb-16 space-y-6">
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary mb-6 leading-tight">
+                        Invierte en tu futuro: La Oferta Definitiva
+                    </h2>
+                    <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                        Accede a Bonos Exclusivos junto con el entrenamiento de Databricks más completo
+                        del mercado.
+                    </p>
+                </div>
+            <div class="flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-2xl shadow-brown/30 border border-primary/10">
+                <div class="md:w-2/3 md:pr-8 p-8 bg-white">
+                    <h3 class="text-2xl font-bold text-primary mb-6 border-b pb-2">
+                        ¿Qué obtienes con tu inversión?
+                    </h3>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6 mb-8">         
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                class="text-brown mt-1 shrink-0 mr-3">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                                <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                            </svg>
+                            <div>
+                                <h4 class="font-bold text-primary">Acceso de por vida (+ Actualizaciones)</h4>
+                                <p class="text-sm text-gray-600">Nunca caduca. Recibe sin coste todas las
+                                    actualizaciones futuras de Unity Catalog y DAB.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                class="text-brown mt-1 shrink-0 mr-3">
+                                <path d="M12 2v10l4 2" />
+                                <circle cx="12" cy="12" r="10" />
+                            </svg>
+                            <div>
+                                <h4 class="font-bold text-primary">Más de 20 horas de contenido premium</h4>
+                                <p class="text-sm text-gray-600">Videos de alta calidad y explicaciones
+                                    detalladas con
+                                    el ritmo de un senior data engineer.</p>
+                            </div>
+                        </div>
+            
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                class="text-brown mt-1 shrink-0 mr-3">
+                                <path d="M12 20V4" />
+                                <path d="M10 20.7a2 2 0 1 0 4 0" />
+                                <path d="M18 13v5a6 6 0 0 1-12 0v-5" />
+                                <path d="M12 4.5l6 2.5v5l-6 2.5-6-2.5v-5l6-2.5z" />
+                            </svg>
+                            <div>
+                                <h4 class="font-bold text-primary">Certificado Verificable (LinkedIn Ready)</h4>
+                                <p class="text-sm text-gray-600">Un distintivo de finalización para compartir y
+                                    validar
+                                    tus nuevas habilidades.</p>
+                            </div>
+                        </div>
+            
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                class="text-brown mt-1 shrink-0 mr-3">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M22 10a7 7 0 1 0-5.26 6.38" />
+                            </svg>
+                            <div>
+                                <h4 class="font-bold text-primary">Comunidad Privada de Expertos</h4>
+                                <p class="text-sm text-gray-600">Resuelve dudas, haz *networking* y accede a
+                                    soporte
+                                    directamente del instructor y otros seniors.</p>
+                            </div>
+                        </div>
+            
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                class="text-brown mt-1 shrink-0 mr-3">
+                                <path d="m5 12 7-7 7 7" />
+                                <path d="M12 19V5" />
+                            </svg>
+                            <div>
+                                <h4 class="font-bold text-primary">Proyectos de Producción Reales</h4>
+                                <p class="text-sm text-gray-600">El código listo para implementar lo que
+                                    aprendes en tu
+                                    trabajo desde el día uno.</p>
+                            </div>
+                        </div>
+                    </div>       
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h4 class="text-xl font-bold text-primary mb-4 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="text-brown mr-2">
+                                <path d="M20 12V7H4v5" />
+                                <path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7" />
+                                <path d="M9 16h6" />
+                            </svg>
+                            ¡3 Bonos Exclusivos Incluidos! (Valorados en +$500 USD)
+                        </h4>
+            
+                        <ul class="space-y-3 pl-0 list-none">
+                            <li class="flex items-center text-gray-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                    class="text-brown shrink-0 mr-3">
+                                    <path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3" />
+                                    <path d="M2 13h20" />
+                                    <path d="M10 17v-4" />
+                                </svg>
+                                <span class="font-medium">BONO #1: Plantillas DAB listas para Producción.</span>
+                                <span class="ml-auto text-sm font-semibold text-brown">($250 Valor)</span>
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                    class="text-brown shrink-0 mr-3">
+                                    <path d="M12 17V5" />
+                                    <path d="M9 10l3-5 3 5" />
+                                </svg>
+                                <span class="font-medium">BONO #2: Guía Avanzada de Gobernanza.</span>
+                                <span class="ml-auto text-sm font-semibold text-brown">($150 Valor)</span>
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                    class="text-brown shrink-0 mr-3">
+                                    <path
+                                        d="M17 3a2.85 2.85 0 0 0-5.1-.38L8.65 6.7c-.52.52-1.2.82-1.92.82H5a2 2 0 0 0-2 2v7c0 1.1.9 2 2 2h2c.72 0 1.4-.3 1.92-.82l3.25-3.25" />
+                                    <path d="M17 3a2.85 2.85 0 0 0-5.1-.38L10 2.5l5.5 5.5" />
+                                    <path d="M13 13l-4 4" />
+                                </svg>
+                                <span class="font-medium">BONO #3: Sesión de Q&A con el instructor.</span>
+                                <span class="ml-auto text-sm font-semibold text-brown">($100 Valor)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <div class="p-4 bg-beige rounded-lg flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="text-primary shrink-0 mt-1 mr-3">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                <path d="m9 12 2 2 4-4" />
+                            </svg>
+                            <div>
+                                <h4 class="font-bold text-primary">Garantía de Satisfacción de 30 Días</h4>
+                                <p class="text-gray-700 text-sm">Prueba el curso sin riesgos. Si en 30 días no
+                                    sientes
+                                    que este es el entrenamiento más valioso para tu carrera, te devolvemos tu
+                                    dinero.
+                                    Sin preguntas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>              
+                <div id="cta-final" class="lg:w-1/3 bg-primary p-8 md:p-12 text-center flex flex-col justify-center shadow-2xl shadow-brown/40">
+                    <p class="text-xl font-semibold text-slate-300 mb-2 uppercase tracking-wider">Inversión Única
+                    </p>
+                    <p class="text-5xl font-extrabold text-slate-50 line-through mb-1 opacity-70">$699 USD</p>
+                    <div class="relative inline-block mx-auto mb-6">
+                        <span
+                            class="absolute -top-10 -right-10 bg-red-600 text-white text-sm font-bold uppercase rounded-full px-4 py-1.5 shadow-xl transform rotate-3">50%
+                            OFF</span>
+                        <span class="text-8xl font-black text-[#f5d7a1]">$349</span>
+                        <span class="text-4xl font-extrabold text-[#f5d7a1] align-top">USD</span>
+                    </div>
+                    <p class="text-base text-slate-400 mb-8 font-medium">Precio final por acceso de por vida con
+                        todos los bonos y actualizaciones.</p>
+                    <a href="#"
+                        class="block w-full bg-brown text-white text-xl font-extrabold rounded-full px-8 py-4 shadow-2xl shadow-brown/70">
+                        ¡Asegura tu Cupo Ahora!
+                    </a>
+                
+                    <div class="mt-6 text-sm text-slate-400">
+                        <p class="text-center text-xs mt-3 opacity-90">
+                            Pago 100% seguro. Acceso inmediato al contenido.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <section id="testimonios" class="bg-white">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+                <div class="text-center mb-20 space-y-6">
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary mb-6 leading-tight">Lo que dicen nuestros estudiantes</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Experiencias reales de profesionales que han transformado su carrera con nuestro curso.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-primary/20">
+                        <div class="flex items-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Testimonio"
+                                class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-primary">Carlos Mendoza</h4>
+                                <p class="text-sm text-gray-600">Ingeniero de Datos</p>
+                            </div>
+                        </div>                      
+                        <p class="text-gray-600">
+                            "El curso me permitió implementar Unity Catalog en mi empresa y mejorar
+                            significativamente nuestra gobernanza de datos. ¡Altamente recomendado!"
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-primary/20">
+                        <div class="flex items-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Testimonio"
+                                class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-primary">Laura Fernández</h4>
+                                <p class="text-sm text-gray-600">Arquitecta Cloud</p>
+                            </div>
+                        </div>                       
+                        <p class="text-gray-600">
+                            "Los módulos sobre Databricks Assets Bundle fueron excelentes. Ahora automatizamos nuestros despliegues y hemos reducido errores en un 70%."
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-primary/20">
+                        <div class="flex items-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Testimonio"
+                                class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-primary">Miguel Sánchez</h4>
+                                <p class="text-sm text-gray-600">Desarrollador</p>
+                            </div>
+                        </div>                      
+                        <p class="text-gray-600">
+                            "El enfoque práctico del curso me permitió aplicar inmediatamente los conocimientos en mi trabajo. El proyecto final fue increíblemente útil."
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-16 text-center">
+                    <div class="md:inline-flex md:items-center bg-beige px-8 py-4 rounded-2xl shadow-lg">
+                        <div class="flex -space-x-3 mr-6">
+                            <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Estudiante"
+                                class="w-12 h-12 rounded-full border-2 border-white shadow-md">
+                            <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Estudiante"
+                                class="w-12 h-12 rounded-full border-2 border-white shadow-md">
+                            <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Estudiante"
+                                class="w-12 h-12 rounded-full border-2 border-white shadow-md">
+                            <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Estudiante"
+                                class="w-12 h-12 rounded-full border-2 border-white shadow-md">
+                        </div>
+                        <span class="text-primary font-bold text-xl mt-5 md:mt-0 inline-block md:inline">+200 profesionales ya han tomado este curso</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-10 mt-12">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-16 bg-primary text-center rounded-none md:rounded-xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">¿Listo para transformar tu carrera?</h2>
+                <p class="text-xl text-white opacity-90 max-w-2xl mx-auto mb-8">Únete a cientos de profesionales que ya
+                    están
+                    dominando Unity Catalog y Databricks Assets Bundle.</p>
+
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button class="bg-brown px-8 py-4 rounded-lg font-semibold text-lg cursor-pointer text-beige">
+                        Inscribirme al curso ahora
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary mb-6">
+                        Preguntas <span class="text-accent">Frecuentes</span>
+                    </h2>
+                    <p class="text-lg text-gray-600">
+                        Resolvemos tus dudas más comunes sobre el curso y el proceso de inscripción.
+                    </p>
+                </div>
+        
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <!-- FAQ 1 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-soft">
+                        <button class="flex justify-between items-center w-full text-left">
+                            <h3 class="text-lg font-bold text-primary">¿Cuánto tiempo tengo acceso al curso?</h3>
+                            <i class="fas fa-chevron-down text-accent"></i>
+                        </button>
+                        <div class="mt-4 text-gray-600">
+                            <p>Tienes acceso de por vida al curso, incluyendo todas las actualizaciones futuras sin coste
+                                adicional. Podrás acceder al contenido las 24 horas del día, los 7 días de la semana.</p>
+                        </div>
+                    </div>
+        
+                    <!-- FAQ 2 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-soft">
+                        <button class="flex justify-between items-center w-full text-left">
+                            <h3 class="text-lg font-bold text-primary">¿Necesito experiencia previa en Databricks?</h3>
+                            <i class="fas fa-chevron-down text-accent"></i>
+                        </button>
+                    </div>
+        
+                    <!-- FAQ 3 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-soft">
+                        <button class="flex justify-between items-center w-full text-left">
+                            <h3 class="text-lg font-bold text-primary">¿Cómo recibo el certificado?</h3>
+                            <i class="fas fa-chevron-down text-accent"></i>
+                        </button>
+                    </div>
+        
+                    <!-- FAQ 4 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-soft">
+                        <button class="flex justify-between items-center w-full text-left">
+                            <h3 class="text-lg font-bold text-primary">¿Qué pasa si no estoy satisfecho con el curso?</h3>
+                            <i class="fas fa-chevron-down text-accent"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="border-t border-slate-800/50 bg-slate-950/90 backdrop-blur-md">
+        <div
+            class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 lg:py-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-slate-400">
+            <p>&copy; <span id="year"></span> Curso Unity Catalog + Databricks Assets Bundle. Todos los derechos
+                reservados.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-slate-300 transition-colors">Términos</a>
+                <a href="#" class="hover:text-slate-300 transition-colors">Privacidad</a>
+                <a href="#cta-final" class="hover:text-slate-300 transition-colors">Inscribirme</a>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="./src/js/index.js"></script>
+</body>
+
+</html>
