@@ -87,7 +87,7 @@ function startNotifications() {
     setTimeout(createPurchaseNotification, initialDelay);
 
     // Then every 60 seconds
-    notificationInterval = setInterval(createPurchaseNotification, 10000);
+    notificationInterval = setInterval(createPurchaseNotification, 60000);
 }
 
 // Cleanup on page unload (good practice)
