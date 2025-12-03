@@ -1,76 +1,111 @@
-import { benefits, publicObjective, topics } from "./data.js";
+import { SELECTORS } from "./contants/selectores.js";
+import { users } from "./contants/users.js";
+import { benefits, featuresProfile, frequentlyQuestions, publicObjective, testimonials, topics } from "./contants/data.js";
+import { renderBenefitsCard, renderFAQItem, renderFeatureProfileCard, renderPublicTargetCard, renderTestimonialCard, renderTopicsCard } from "./ui/cards.js";
 
-const benefitsContainer = document.querySelector('#benefits-container');
-const topicsContainer = document.querySelector('#topics-container');
-const publicTargetContainer = document.querySelector('#public-container');
 const year = document.getElementById('year');
-
 const menuToggle = document.getElementById("menu-toggle");
 const mobileMenu = document.getElementById("mobile-menu");
 const closeMenu = document.getElementById("close-menu");
 
-function renderContent(containerElement, dataList, itemRenderer) {
-    if (!containerElement) {
-        return;
-    }
-    const htmlContent = dataList.map(itemRenderer).join('');
-    containerElement.innerHTML = htmlContent;
+function renderContent(selector, data, renderer) {
+    const container = document.querySelector(selector);
+
+    if (!container) return;
+
+    const htmlContent = data.map(renderer).join('');
+    container.innerHTML = htmlContent;
+};
+
+function createPurchaseNotification() {
+    // Select random user
+    const randomUser = users[Math.floor(Math.random() * users.length)];
+
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `
+        fixed bottom-4 right-4 md:right-6 lg:right-8 text-green-600 ms-10 rounded-xl
+        max-w-sm z-50 transform translate-x-full transition-all duration-300 ease-in-out
+    `;
+    notification.innerHTML = `
+        <div class="flex items-center gap-2 bg-green-100 rounded-lg">
+            <span class="bg-green-600 p-1 rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                    stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                    viewBox="0 0 24 24" class="text-emerald-100">
+                    <path d="M5 13l4 4L19 7" />
+                </svg>
+            </span>
+            <p class="font-semibold text-xs leading-tight">${randomUser}</p>
+            <p class="text-emerald-500 text-xs">acaba de comprar.</p>
+        </div>
+    `;
+
+    // Append to body
+    document.body.appendChild(notification);
+
+    // Animate slide-in
+    requestAnimationFrame(() => {
+        notification.classList.remove('translate-x-full');
+        notification.classList.add('translate-x-0');
+    });
+
+    // Auto-remove after 5 seconds with slide-out animation
+    const removeTimeout = setTimeout(() => {
+        notification.classList.remove('translate-x-0');
+        notification.classList.add('translate-x-full');
+        const finalRemove = () => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+            clearTimeout(removeTimeout);
+        };
+        notification.addEventListener('transitionend', finalRemove, { once: true });
+    }, 1500);
+
+    // Handle manual close
+    notification.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+            clearTimeout(removeTimeout);
+            notification.classList.remove('translate-x-0');
+            notification.classList.add('translate-x-full');
+            const finalRemove = () => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            };
+            notification.addEventListener('transitionend', finalRemove, { once: true });
+        }
+    });
 }
 
-const renderBeneficioCard = (item) => `
-    <div class="border-t-4 border-brown bg-white p-6 rounded-xl shadow">
-        <div class="w-14 h-14 bg-brown rounded-lg flex items-center justify-center mb-4">
-          ${item.iconSVG}
-        </div>
-        <h3 class="text-xl font-bold text-primary mb-2">${item.title}</h3>
-        <p class="text-gray-600">${item.description}</p>
-    </div>
-`;
+// Initialize notifications: Start after DOM load, trigger every 60 seconds
+let notificationInterval = null;
+function startNotifications() {
+    // First notification after a random delay (1-5 seconds) for demo effect
+    const initialDelay = Math.floor(Math.random() * 4000) + 1000;
+    setTimeout(createPurchaseNotification, initialDelay);
 
-const renderTopicsCard = (item) => `
-<div class="p-6">
-    <div class="flex items-start">
-        <div  class="shrink-0 w-10 h-10 bg-brown rounded-full flex items-center justify-center text-white font-extrabold text-lg mr-4 shadow-md">
-            ${item.id}
-        </div>
-        <div>
-            <h4 class="text-xl font-bold text-primary mb-2">${item.title}</h4>
-            <p class="text-gray-700 mb-3">${item.description}</p>
-            <div class="mt-2 flex flex-wrap gap-2">
-                ${item.tags.map(tag => `
-                    <span class="px-3 py-1 bg-beige text-primary rounded-full text-sm">${tag}</span>`
-                ).join('')}
-            </div>
-        </div>
-    </div>
-</div>
-`;
+    // Then every 60 seconds
+    notificationInterval = setInterval(createPurchaseNotification, 10000);
+}
 
-const renderPublicTargetCard = (item) => `
-<div class="bg-white border-b-4 border-brown transform scale-105 shadow-lg rounded-xl">
-    <div class="bg-brown rounded-t-xl">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" class="text-beige">
-            <path
-                d="M12 21c-3.9 0-7.24-1.84-9-4.5 2.5-3.1 5.8-4.5 9-4.5s6.5 1.4 9 4.5c-1.76 2.66-5.1 4.5-9 4.5zM12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
-        </svg>
-    </div>
-    <div class="p-4">
-        <h3 class="text-xl font-bold text-primary mb-2 mt-3">${item.title}</h3>
-        <p class="text-gray-700">${item.description}</p>
-    </div>
-    <span class="absolute top-0 right-0 -mt-2.5 mr-0 md:-m-2.5 bg-brown text-white text-xs font-bold px-3 py-1 rounded-full shadow-md rotate-3">
-        ¡Rol Clave!
-    </span>
-</div>
-`;
+// Cleanup on page unload (good practice)
+window.addEventListener('beforeunload', () => {
+    if (notificationInterval) {
+        clearInterval(notificationInterval);
+    }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderContent(benefitsContainer, benefits, renderBeneficioCard);
-    renderContent(topicsContainer, topics, renderTopicsCard);
-    renderContent(publicTargetContainer, publicObjective, renderPublicTargetCard);
+    renderContent(SELECTORS.benefitsContainer, benefits, renderBenefitsCard);
+    renderContent(SELECTORS.topicsContainer, topics, renderTopicsCard);
+    renderContent(SELECTORS.publicContainer, publicObjective, renderPublicTargetCard);
+    renderContent(SELECTORS.testimonialsContainer, testimonials, renderTestimonialCard);
+    renderContent(SELECTORS.faqContainer, frequentlyQuestions, renderFAQItem);
+    renderContent(SELECTORS.featuresProfileContainer, featuresProfile, renderFeatureProfileCard);
     year.textContent = new Date().getFullYear();
+    startNotifications()
 });
 
 menuToggle.addEventListener("click", () => {
