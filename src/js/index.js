@@ -28,7 +28,7 @@ function createPurchaseNotification() {
         max-w-sm z-50 transform translate-x-full transition-all duration-300 ease-in-out
     `;
     notification.innerHTML = `
-        <div class="flex items-center gap-2 bg-green-100 rounded-lg">
+        <div class="flex items-center gap-2 bg-green-100 rounded-lg p-1">
             <span class="bg-green-600 p-1 rounded-full flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -82,11 +82,8 @@ function createPurchaseNotification() {
 // Initialize notifications: Start after DOM load, trigger every 60 seconds
 let notificationInterval = null;
 function startNotifications() {
-    // First notification after a random delay (1-5 seconds) for demo effect
-    const initialDelay = Math.floor(Math.random() * 4000) + 1000;
+    const initialDelay = Math.floor(Math.random() * 5000) + 1000;
     setTimeout(createPurchaseNotification, initialDelay);
-
-    // Then every 60 seconds
     notificationInterval = setInterval(createPurchaseNotification, 60000);
 }
 

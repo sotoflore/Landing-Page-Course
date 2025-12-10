@@ -41,13 +41,13 @@ export const topics = [
     {
         id: 2,
         title: "Módulo 2",
-        description: "Aplica el modelo de seguridad por defecto de UC. Implementa control de acceso granular (RBAC), *row/column filtering* y técnicas avanzadas como Data Masking para cumplir con normativas de datos (GDPR, CCPA).",
+        description: "Aplica el modelo de seguridad por defecto de UC. Implementa control de acceso granular (RBAC), row/column filtering y técnicas avanzadas como Data Masking para cumplir con normativas de datos (GDPR, CCPA).",
         tags: ["RBAC", "Column Masking", "Row Filtering"]
     },
     {
         id: 3,
         title: "Módulo 3",
-        description: "Domina la estandarización de proyectos con DAB. Aprende a definir Jobs y Pipelines (DLT) usando `YAML` y automatiza el despliegue de tu código, transformando tu flujo de trabajo a nivel Senior.",
+        description: "Domina la estandarización de proyectos con DAB. Aprende a definir Jobs y Pipelines (DLT) usando YAML y automatiza el despliegue de tu código, transformando tu flujo de trabajo a nivel Senior.",
         tags: ["YAML Project Structure", "Jobs & DLT Deployment"]
     },
     {
